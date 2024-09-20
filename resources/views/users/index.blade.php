@@ -46,9 +46,14 @@
                                         {{ $user->created_at->format('Y-d-m') }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                        /
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                        <a href="{{ route('users.edit', $user) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                        |
+                                        <form method="POST" 
+                                                class="inline-block" 
+                                                action="{{ route('users.destroy', $user) }}" 
+                                                onsubmit="return confirm('Delete this item?')">
+                                            <button type="submit" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
