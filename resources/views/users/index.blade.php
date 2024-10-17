@@ -51,7 +51,9 @@
                                         <form method="POST" 
                                                 class="inline-block" 
                                                 action="{{ route('users.destroy', $user) }}" 
-                                                onsubmit="return confirm('Delete this item?')">
+                                                onsubmit="return confirm('Delete this user?')">
+                                                @method('DELETE')
+                                                @csrf
                                             <button type="submit" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
                                         </form>
                                     </td>
