@@ -13,14 +13,18 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+
+            //Contact Information
             $table->string('contact_name');
             $table->string('contact_email')->unique();
             $table->string('contact_phone_number');
+
+            //Company Information
             $table->string('company_name');
+            $table->integer('company_vat');
             $table->string('company_address');
             $table->string('company_city');
             $table->string('company_zip');
-            $table->integer('company_vat');
             $table->timestamps();
             $table->softDeletes();
         });
