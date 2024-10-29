@@ -11,7 +11,7 @@
                 <div class="overflow-hidden overflow-x-auto p-6 bg-white border-b border">
                     <form method="POST" action="{{ route('clients.store') }}">
                         @csrf
-                        <div class="divide-y-2 space-y-4">
+                        <div class="divide-y-2 divide-none space-y-4">
 
                             <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
 
@@ -37,7 +37,7 @@
                             </div>
 
                         </div>
-                        <div class="divide-y-2 space-y-4 mt-4">
+                        <div class="divide-y-2 divide-none space-y-4 mt-4">
 
                             <h3 class="text-xl font-semibold mb-4">Company Information</h3>
 
@@ -77,7 +77,6 @@
                             </div>
                             
                         </div>
-                
                         <div class="flex items-center justify-start mt-4">
                             <x-primary-button class="mt-4">
                                 {{ __('Save') }}
