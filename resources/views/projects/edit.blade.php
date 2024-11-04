@@ -14,29 +14,29 @@
                         @csrf
                         <div class="divide-y-2 divide-none space-y-4">
 
-                            <!--Project Title -->
+                            <!-- Project Title -->
                             <div class="mt-4">
                                 <x-input-label for="title" :value="__('Title')" />
                                 <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', $project->title)" required />
                                 <x-input-error :messages="$errors->get('title')" class="mt-2" />
                             </div>
 
-                            <!--Project Description -->
+                            <!-- Project Description -->
                             <div class="mt-4">
                                 <x-input-label for="description" :value="__('Description')" />
-                                <x-textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                            id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description', $project->description)" required />
+                                <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                                            id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description', $project->description)" required >{{$project->description}}</textarea>
                                 <x-input-error :messages="$errors->get('description')" class="mt-2" />
                             </div>
 
-                            <!--Deadline At -->
+                            <!-- Deadline At -->
                             <div class="mt-4">
                                 <x-input-label for="deadline_at" :value="__('Deadline')" />
                                 <x-text-input id="deadline_at" class="block mt-1 w-full" type="date" name="deadline_at" :value="old('deadline_at', $project->deadline_at)" required />
                                 <x-input-error :messages="$errors->get('deadline_at')" class="mt-2" />
                             </div>
 
-                            <!--Assigned User -->
+                            <!-- Assigned User -->
                             <div class="mt-4">
                                 <x-input-label for="user_id" :value="__('Assigned User')" />
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="user_id" id="user_id">
@@ -48,7 +48,7 @@
                                 <x-input-error :messages="$errors->get('user_id')" class="mt-2" />
                             </div>
 
-                            <!--Assigned Client -->
+                            <!-- Assigned Client -->
                             <div class="mt-4">
                                 <x-input-label for="client_id" :value="__('Client')" />
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="client_id" id="client_id">
@@ -60,7 +60,7 @@
                                 <x-input-error :messages="$errors->get('client_id')" class="mt-2" />
                             </div>
 
-                            <!--Status -->
+                            <!-- Status -->
                             <div class="mt-4">
                                 <x-input-label for="status" :value="__('Status')" />
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="status" id="status">
