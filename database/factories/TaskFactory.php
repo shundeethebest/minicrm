@@ -27,12 +27,12 @@ class TaskFactory extends Factory
 
 
         return [
-            'title'         => fake()->sentence(),
+            'title'         => fake()->sentence(3),
             'description'   => fake()->paragraph(),
             'user_id'       => $users->random(),
             'client_id'     => $clients->random(),
             'project_id'    => $projects->random(),
-            'deadline_at'   => fake()->dateTimeBetween('+1 month', '+ month'),
+            'deadline_at'   => fake()->dateTimeBetween('+1 month', '+6 month'),
             'status'        => fake()->randomElement(TaskStatus::cases())->value,
         ];
     }
