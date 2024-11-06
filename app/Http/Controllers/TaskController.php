@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PermissionEnum;
 use App\Models\Task;
 use App\Models\Client;
 use App\Models\Project;
@@ -10,7 +11,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
-
+use Illuminate\Support\Facades\Gate;
 
 class TaskController extends Controller
 {
@@ -82,6 +83,10 @@ class TaskController extends Controller
      */
     public function destroy(Task $task): RedirectResponse
     {
+        Gate::authorize(PermissionEnum::DELETE_TASKS->value);
+
+        $task->project->each->delete();
+        $task->client->each->delete();
         $task->delete();
 
         return redirect()->route(route: 'tasks.index');
