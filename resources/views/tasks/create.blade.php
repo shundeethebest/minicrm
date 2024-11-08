@@ -53,7 +53,7 @@
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="client_id" id="client_id">
                                     @foreach ($clients as $client)
                                         <option value="{{ $client->id }}"
-                                            @selected(old('client_id') == $client->id)>{{ $client->company_name}}</option>
+                                            @selected(old('client_id') == $client->id)>{{ $client->company_name }}</option>
                                     @endforeach
                                 </select>
                                 <x-input-error :messages="$errors->get('client_id')" class="mt-2" />
@@ -65,7 +65,7 @@
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="project_id" id="project_id">
                                     @foreach ($projects as $project)
                                         <option value="{{ $project->id }}"
-                                            @selected(old('project_id') == $project->id)>{{ $project->title}}</option>
+                                            @selected(old('project_id') == $project->id)>{{ $project->title }}</option>
                                     @endforeach
                                 </select>
                                 <x-input-error :messages="$errors->get('project_id')" class="mt-2" />
@@ -77,7 +77,7 @@
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="status" id="status">
                                     @foreach (\App\Enums\TaskStatus::cases() as $status)
                                         <option value="{{ $status->value }}"
-                                            @selected(old('status') == $status->value)>{{$status->value}}</option>
+                                            @selected(old('status') == $status->value)>{{ $status->value }}</option>
                                     @endforeach
                                 </select>
                                 <x-input-error :messages="$errors->get('status')" class="mt-2" />

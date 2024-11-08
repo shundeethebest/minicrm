@@ -25,7 +25,7 @@
                             <div class="mt-4">
                                 <x-input-label for="description" :value="__('Description')" />
                                 <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                            id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description', $project->description)" required >{{$project->description}}</textarea>
+                                            id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description', $project->description)" required >{{ $project->description }}</textarea>
                                 <x-input-error :messages="$errors->get('description')" class="mt-2" />
                             </div>
 
@@ -54,7 +54,7 @@
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="client_id" id="client_id">
                                     @foreach ($clients as $client)
                                         <option value="{{ $client->id }}"
-                                            @selected(old('client_id', $project->client_id) == $client->id)>{{ $client->company_name}}</option>
+                                            @selected(old('client_id', $project->client_id) == $client->id)>{{ $client->company_name }}</option>
                                     @endforeach
                                 </select>
                                 <x-input-error :messages="$errors->get('client_id')" class="mt-2" />
@@ -66,7 +66,7 @@
                                 <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="status" id="status">
                                     @foreach (\App\Enums\ProjectStatus::cases() as $status)
                                         <option value="{{ $status->value }}"
-                                            @selected(old('status', $project->status->value) == $status->value)>{{$status->value}}</option>
+                                            @selected(old('status', $project->status->value) == $status->value)>{{ $status->value }}</option>
                                     @endforeach
                                 </select>
                                 <x-input-error :messages="$errors->get('status')" class="mt-2" />
