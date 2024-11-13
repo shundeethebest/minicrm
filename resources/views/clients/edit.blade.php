@@ -12,7 +12,7 @@
                     <form method="POST" action="{{ route('clients.update', $client) }}">
                         @method('PUT')
                         @csrf
-                        <div class="divide-y-2 space-y-4">
+                        <div class="divide-y-2 divide-none space-y-4">
 
                             <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
 
@@ -38,7 +38,7 @@
                             </div>
 
                         </div>
-                        <div class="divide-y-2 space-y-4 mt-4">
+                        <div class="divide-y-2 divide-none space-y-4 mt-4">
 
                             <h3 class="text-xl font-semibold mb-4">Company Information</h3>
 
