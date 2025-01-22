@@ -16,6 +16,9 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         Permission::create(['name' => PermissionEnum::MANAGE_USERS]);
+        Permission::create(['name' => PermissionEnum::CREATE_USERS]);
+        Permission::create(['name' => PermissionEnum::EDIT_USERS]);
+        Permission::create(['name' => PermissionEnum::DELETE_USERS]);
         Permission::create(['name' => PermissionEnum::DELETE_CLIENTS]);
         Permission::create(['name' => PermissionEnum::DELETE_PROJECTS]);
         Permission::create(['name' => PermissionEnum::DELETE_TASKS]);
@@ -23,6 +26,9 @@ class PermissionSeeder extends Seeder
         $role = Role::findByName(RoleEnum::ADMIN->value);
         $role->givePermissionTo([
             PermissionEnum::MANAGE_USERS,
+            PermissionEnum::CREATE_USERS,
+            PermissionEnum::EDIT_USERS,
+            PermissionEnum::DELETE_USERS,
             PermissionEnum::DELETE_CLIENTS,
             PermissionEnum::DELETE_PROJECTS,
             PermissionEnum::DELETE_TASKS,

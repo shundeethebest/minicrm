@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PermissionEnum;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -24,6 +26,8 @@ class UserController extends Controller
      */
     public function create()
     {
+        Gate::authorize(PermissionEnum::CREATE_USERS->value);
+
         return view('users.create');
     }
 
@@ -42,6 +46,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        Gate::authorize(PermissionEnum::EDIT_USERS->value);
+
         return view('users.edit', compact(var_name: 'user'));
     }
 

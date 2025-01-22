@@ -9,7 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    @can(\App\Enums\PermissionEnum::CREATE_USERS->value)
                     <a href="{{ route('users.create') }}" class="underline">Add new user</a>
+                    @endcan
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -25,9 +27,11 @@
                                 <th scope="col" class="px-6 py-3">
                                     Date Created
                                 </th>
+                                @can(\App\Enums\PermissionEnum::EDIT_USERS->value)
                                 <th scope="col" class="px-6 py-3">
                                     Action
                                 </th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -46,7 +50,10 @@
                                         {{ $user->created_at->format('Y-d-m') }}
                                     </td>
                                     <td class="px-6 py-4">
+                                        @can(\App\Enums\PermissionEnum::EDIT_USERS->value)
                                         <a href="{{ route('users.edit', $user) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                        @endcan
+                                        @can(\App\Enums\PermissionEnum::DELETE_USERS->value)
                                         |
                                         <form method="POST" 
                                                 class="inline-block" 
@@ -56,6 +63,7 @@
                                                 @csrf
                                             <button type="submit" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
                                         </form>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

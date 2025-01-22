@@ -18,8 +18,14 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'first_name' => 'Administrator',
             'last_name' => 'Administrator',
-            'email' => 'administrator@gmail.com',
-            'password' => '@secretpassword!',
+            'email' => 'admin@gmail.com',
+            'password' => '@secret',
         ])->syncRoles([RoleEnum::ADMIN]);
+        User::factory()->create([
+            'first_name' => 'Shundee',
+            'last_name' => 'Navarroza',
+            'email' => 'shundeenavarroza@gmail.com',
+            'password' => '@secret',
+        ])->syncRoles([RoleEnum::USER]);
     }
 }
